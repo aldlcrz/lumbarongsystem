@@ -1,0 +1,12 @@
+{
+    "name": "lumbarong",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "postinstall": "npm install --legacy-peer-deps --prefix backend && npm install --legacy-peer-deps --prefix frontend",
+        "start": "powershell -NoProfile -ExecutionPolicy Bypass -File ./start.ps1",
+        "dev": "npm start",
+        "expo": "npx expo start --lan --prefix expo_app",
+        "start:expo": "npx expo start --lan --prefix expo_app"
+    }
+}

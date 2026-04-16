@@ -1,0 +1,22 @@
+{
+  "java.import.gradle.enabled": false,
+  "java.project.importOnFirstTimeStartup": "never",
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "files.exclude": {
+    "**/flutter_app_ARCHIVE": true,
+    "**/frontend/android/.gradle": true,
+    "**/frontend/android/.kotlin": true,
+    "**/frontend/android/build": true
+  },
+  "search.exclude": {
+    "**/flutter_app_ARCHIVE": true,
+    "**/frontend/android/.gradle": true,
+    "**/frontend/android/.kotlin": true,
+    "**/frontend/android/build": true
+  },
+  "builder.serverUrl": "http://localhost:3000",
+  "builder.command": "",
+  "builder.runDevServer": false,
+  "builder.autoDetectDevServer": true,
+  "builder.launchType": "editor"
+}

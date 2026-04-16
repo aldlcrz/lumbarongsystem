@@ -1,0 +1,119 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend Server (Express)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/backend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal",
+      "presentation": {
+        "group": "lumbarong",
+        "order": 1
+      }
+    },
+    {
+      "name": "Frontend Server (Next.js)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal",
+      "presentation": {
+        "group": "lumbarong",
+        "order": 2
+      }
+    },
+    {
+      "name": "Launch Lumbarong",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "Launch System",
+      "presentation": {
+        "group": "lumbarong",
+        "order": 3
+      }
+    },
+    {
+      "name": "Launch Lumbarong Mobile (Simulated)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "Launch System",
+      "runtimeArgs": [
+        "--window-size=400,850",
+        "--user-agent=Mozilla/5.0 (Linux; Android 13; SM-S901B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36"
+      ],
+      "presentation": {
+        "group": "lumbarong",
+        "order": 4
+      }
+    },
+    {
+      "name": "Launch Lumbarong App",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "Launch System",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "cap",
+        "run",
+        "android"
+      ],
+      "cwd": "${workspaceFolder}/frontend",
+      "console": "integratedTerminal",
+      "presentation": {
+        "group": "lumbarong",
+        "order": 5
+      }
+    },
+    {
+      "name": "flutter_app",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/flutter_app",
+      "runtimeExecutable": "flutter",
+      "runtimeArgs": ["run"],
+      "console": "integratedTerminal",
+      "presentation": {
+        "group": "lumbarong",
+        "order": 6
+      }
+    },
+    {
+      "name": "Expo App (Expo Go)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/expo_app",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "console": "integratedTerminal",
+      "presentation": {
+        "group": "lumbarong",
+        "order": 10
+      }
+    },
+    {
+      "name": "Launch LumbaRong App (Windows Desktop)",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "Launch System",
+      "runtimeArgs": [
+        "--app=http://localhost:3000", 
+        "--window-size=1280,720"
+      ],
+      "presentation": {
+        "group": "lumbarong",
+        "order": 6
+      }
+    }
+  ]
+}

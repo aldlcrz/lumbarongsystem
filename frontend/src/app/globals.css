@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1440px;
+}
+
+:root {
+  /* Colors */
+  --cream: #F7F3EE;
+  --warm-white: #FDFAF7;
+  --charcoal: #1C1917;
+  --bark: #3D2B1F;
+  --rust: #C0422A;
+  --rust-light: #E8604A;
+  --sand: #D4B896;
+  --sage: #8FA882;
+  --muted: #8C7B70;
+  --border: #E5DDD5;
+  --input-bg: #F9F6F2;
+  --green: #4A9E6A;
+  --amber: #C47C1A;
+  --blue: #3B7FD4;
+
+  /* Misc */
+  --shadow-artisan: 0 10px 40px rgba(60, 40, 20, 0.06);
+
+  /* Safe Area Insets for Mobile */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  
+  /* Fluid Typography Scale */
+  --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+  --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.95rem);
+  --text-base: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
+  --text-lg: clamp(1.1rem, 1.05rem + 0.25vw, 1.3rem);
+  --text-xl: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
+  --text-2xl: clamp(1.6rem, 1.4rem + 1vw, 2.2rem);
+  --text-3xl: clamp(2.2rem, 1.8rem + 2vw, 3.5rem);
+  --text-4xl: clamp(3.2rem, 2.5rem + 4vw, 5.5rem);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FORMAL PANEL TYPOGRAPHY
+   Applies only inside admin / seller / customer layouts.
+   The landing page (/) has no [data-panel] wrapper — fully safe.
+───────────────────────────────────────────────────────────── */
+
+[data-panel] {
+  --formal-font: var(--font-playfair), "Playfair Display", Georgia, serif;
+}
+
+/* All headings inside panels use Playfair Display */
+[data-panel] h1,
+[data-panel] h2,
+[data-panel] h3,
+[data-panel] h4,
+[data-panel] h5,
+[data-panel] h6 {
+  font-family: var(--formal-font);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* Sidebar brand name "LUMBARONG" (uses font-serif class) */
+[data-panel] .font-serif {
+  font-family: var(--formal-font);
+}
+
+/* Utility classes for explicit formal styling */
+.formal-text {
+  font-family: var(--formal-font);
+}
+
+/* Formal numbers — elegant Playfair Display serif style */
+.formal-num {
+  font-family: var(--formal-font);
+  font-variant-numeric: oldstyle-nums;
+  letter-spacing: 0.01em;
+}
+
+/* Recharts axis tick numbers — apply Playfair to all SVG text in charts */
+.recharts-cartesian-axis-tick text,
+.recharts-legend-item-text,
+.recharts-tooltip-label,
+.recharts-tooltip-item {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif !important;
+}
+
+.pb-safe {
+  padding-bottom: var(--safe-bottom);
+}
+
+.pt-safe {
+  padding-top: var(--safe-top);
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Fix browser autofill styling */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--input-bg) inset !important;
+    -webkit-text-fill-color: var(--charcoal) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Hide browser-native password reveal and clear buttons */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none !important;
+}
+
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  right: 0 !important;
+}
+
+@layer components {
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.5rem;
+    font-weight: 500;
+    color: white;
+    border-radius: 0.5rem;
+    transition: all 300ms ease;
+    background-color: var(--bark);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--rust-light), var(--rust));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(192, 66, 42, 0.2);
+  }
+
+  .artisan-card {
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 300ms ease;
+    box-shadow: var(--shadow-artisan);
+  }
+
+  .eyebrow {
+    color: var(--rust);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 2rem;
+    height: 2px;
+    background-color: var(--rust);
+  }
+
+  .nav-item-active {
+    border-left-width: 4px;
+    border-color: var(--rust);
+    background-color: rgba(192, 66, 42, 0.09);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .fluid-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 5vw, 5rem);
+    padding-right: clamp(1rem, 5vw, 5rem);
+    max-width: 1440px;
+  }
+
+  .sticky-bottom-action {
+    position: fixed;
+    bottom: 72px; /* Position above MobileBottomNav */
+    left: 0;
+    right: 0;
+    z-index: 90;
+    background: white;
+    border-top: 1px solid var(--border);
+    padding: 1.25rem;
+    padding-bottom: calc(1.25rem + var(--safe-bottom, 0px));
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.06);
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rowIn {
+  from { opacity: 0; transform: translateX(6px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-down {
+  animation: fadeDown 0.55s ease forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.55s ease forwards;
+}
+
+.animate-row-in {
+  animation: rowIn 0.35s ease forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LEAFLET MAP FIXES
+   Ensures markers and tiles are correctly rendered.
+───────────────────────────────────────────────────────────── */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  display: block !important;
+}
+
+.leaflet-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1000 !important;
+}
+

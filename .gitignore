@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+.expo/
+dist/
+web-build/
+build/
+.dart_tool/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.local
+
+# Secrets
+.env
+.env.*
+! .env.example
+
+# Native caches
+ios/
+android/
+
+# Ignore the new v2 folder if it somehow ends up inside
+lumbarong-v2/
